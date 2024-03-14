@@ -56,8 +56,8 @@ class ElasticityCalculator(QWidget):
             dp = p2 - p1
 
             # Check if the denominator (change in price) is zero
-            if dp == 0:
-                self.result_label.setText("Error: Division by zero (change in price cannot be zero).")
+            if dp == 0 or q1 == 0:
+                self.result_label.setText("Error: Division by zero.")
             else:
                 eq = (dq / dp) * (p1 / q1)
                 self.result_label.setText(f"Elasticity Coefficient: {eq:.4f}")
